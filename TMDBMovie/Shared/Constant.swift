@@ -18,6 +18,7 @@ struct Method {
 struct API {
     static let BASE_URL = "https://api.themoviedb.org/3/movie"
     static let IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+    static let YOUTUBE_URL = "https://www.youtube.com/embed/"
     static let POPULAR = "/popular"
     static let TOP_RATED = "/top_rated"
     static let NOW_PLAYING = "/now_playing"
@@ -38,6 +39,7 @@ struct DateFormat {
 struct NibName {
     static let movieListViewController = "MovieListViewController"
     static let movieDetailViewController = "MovieDetailViewController"
+    static let youtubeTrailerViewController = "YoutubeTrailerViewController"
     static let movieCell = "MovieCell"
     static let reviewCell = "ReviewCell"
 }

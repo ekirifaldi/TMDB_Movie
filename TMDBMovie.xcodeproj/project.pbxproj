@@ -42,6 +42,9 @@
 		3D22BAD125AB395300F50622 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22BACF25AB395300F50622 /* MovieListViewController.xib */; };
 		3D22BAD525AB3A6900F50622 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAD325AB3A6900F50622 /* MovieDetailViewController.swift */; };
 		3D22BAD625AB3A6900F50622 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22BAD425AB3A6900F50622 /* MovieDetailViewController.xib */; };
+		3D22BADA25AB4C2100F50622 /* YoutubeTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAD825AB4C2100F50622 /* YoutubeTrailerViewController.swift */; };
+		3D22BADB25AB4C2100F50622 /* YoutubeTrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22BAD925AB4C2100F50622 /* YoutubeTrailerViewController.xib */; };
+		3D22BADE25AB501C00F50622 /* YoutubeTrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BADD25AB501C00F50622 /* YoutubeTrailerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,9 @@
 		3D22BACF25AB395300F50622 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		3D22BAD325AB3A6900F50622 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3D22BAD425AB3A6900F50622 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		3D22BAD825AB4C2100F50622 /* YoutubeTrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTrailerViewController.swift; sourceTree = "<group>"; };
+		3D22BAD925AB4C2100F50622 /* YoutubeTrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTrailerViewController.xib; sourceTree = "<group>"; };
+		3D22BADD25AB501C00F50622 /* YoutubeTrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTrailerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 			children = (
 				3D22BABA25AB368E00F50622 /* MovieListViewModel.swift */,
 				3D22BABE25AB381600F50622 /* MovieDetailViewModel.swift */,
+				3D22BADD25AB501C00F50622 /* YoutubeTrailerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -219,6 +226,8 @@
 				3D22BACF25AB395300F50622 /* MovieListViewController.xib */,
 				3D22BAD325AB3A6900F50622 /* MovieDetailViewController.swift */,
 				3D22BAD425AB3A6900F50622 /* MovieDetailViewController.xib */,
+				3D22BAD825AB4C2100F50622 /* YoutubeTrailerViewController.swift */,
+				3D22BAD925AB4C2100F50622 /* YoutubeTrailerViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D22BADB25AB4C2100F50622 /* YoutubeTrailerViewController.xib in Resources */,
 				3D22BAD625AB3A6900F50622 /* MovieDetailViewController.xib in Resources */,
 				3D22BA6425AB2F9000F50622 /* LaunchScreen.storyboard in Resources */,
 				3D22BACC25AB390600F50622 /* ReviewCell.xib in Resources */,
@@ -314,6 +324,7 @@
 				3D22BAB425AB359000F50622 /* GetMovieReviewsManager.swift in Sources */,
 				3D22BAD525AB3A6900F50622 /* MovieDetailViewController.swift in Sources */,
 				3D22BA7E25AB337800F50622 /* DynamicLabel.swift in Sources */,
+				3D22BADE25AB501C00F50622 /* YoutubeTrailerViewModel.swift in Sources */,
 				3D22BA8425AB33AF00F50622 /* BackBarButtonItem.swift in Sources */,
 				3D22BAD025AB395300F50622 /* MovieListViewController.swift in Sources */,
 				3D22BA7325AB32F800F50622 /* FormatterExtension.swift in Sources */,
@@ -335,6 +346,7 @@
 				3D22BA6F25AB32B200F50622 /* Constant.swift in Sources */,
 				3D22BACB25AB390600F50622 /* ReviewCell.swift in Sources */,
 				3D22BAC525AB38B300F50622 /* MovieCell.swift in Sources */,
+				3D22BADA25AB4C2100F50622 /* YoutubeTrailerViewController.swift in Sources */,
 				3D22BA8125AB339300F50622 /* DynamicFontSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

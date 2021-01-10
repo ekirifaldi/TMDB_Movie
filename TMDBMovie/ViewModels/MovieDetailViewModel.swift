@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class MovieDetailViewModel {
     var getMovieDetail = GetMovieDetailManager()
@@ -31,6 +32,13 @@ class MovieDetailViewModel {
     func getReviews(movieId id: Int){
         self.getReviews.delegate = self
         self.getReviews.get(movieId: id)
+    }
+    
+    func goToYoutubeTrailer(){
+        let youtubeTrailerVC = YoutubeTrailerViewController(nibName: NibName.youtubeTrailerViewController, bundle: nil)
+        youtubeTrailerVC.youtubeTrailerlVM.youtubeKey = "DWfPGIMDhNw"
+        self.navigation!.dismiss(animated: true, completion: nil)
+        self.navigation!.pushViewController(youtubeTrailerVC, animated: true)
     }
 }
 

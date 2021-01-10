@@ -107,6 +107,9 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func btnWatchTrailerPressed(_ sender: UIButton) {
+        movieDetailVM.goToYoutubeTrailer()
+    }
 }
 
 extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource {

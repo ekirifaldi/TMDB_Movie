@@ -55,7 +55,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7m-eT-0ra" customClass="DynamicLabel" customModule="TMDBMovie" customModuleProvider="target">
-                            <rect key="frame" x="184" y="74.5" width="171" height="22"/>
+                            <rect key="frame" x="184" y="94.5" width="171" height="22"/>
                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKA-Gg-Fnu" customClass="DynamicLabel" customModule="TMDBMovie" customModuleProvider="target">
-                            <rect key="frame" x="184" y="101.5" width="171" height="115.5"/>
+                            <rect key="frame" x="184" y="121.5" width="171" height="95.5"/>
                             <string key="text">desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc descdesc desc desc desc desc desc desc desc desc desc desc desc desc descdesc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc </string>
                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,11 +77,20 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBQ-xQ-9Oi">
+                            <rect key="frame" x="184" y="59.5" width="90" height="30"/>
+                            <state key="normal" title="Watch Trailer"/>
+                            <connections>
+                                <action selector="btnWatchTrailerPressed:" destination="-1" eventType="touchUpInside" id="uTE-p6-lr1"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="z7m-eT-0ra" firstAttribute="top" secondItem="lL9-Ii-Y8b" secondAttribute="bottom" constant="20" id="1IN-cu-mri"/>
+                        <constraint firstItem="z7m-eT-0ra" firstAttribute="top" secondItem="kBQ-xQ-9Oi" secondAttribute="bottom" constant="5" id="1IN-cu-mri"/>
+                        <constraint firstItem="kBQ-xQ-9Oi" firstAttribute="top" secondItem="lL9-Ii-Y8b" secondAttribute="bottom" constant="5" id="3sM-6l-qlQ"/>
                         <constraint firstAttribute="bottom" secondItem="jVV-SA-KvG" secondAttribute="bottom" constant="5" id="5Co-NF-JBo"/>
+                        <constraint firstItem="kBQ-xQ-9Oi" firstAttribute="leading" secondItem="jVV-SA-KvG" secondAttribute="trailing" constant="10" id="894-Yp-R4R"/>
                         <constraint firstItem="RKA-Gg-Fnu" firstAttribute="top" secondItem="z7m-eT-0ra" secondAttribute="bottom" constant="5" id="F7W-x9-nA1"/>
                         <constraint firstItem="jVV-SA-KvG" firstAttribute="top" secondItem="bax-Of-1cn" secondAttribute="top" constant="5" id="GDe-A4-ukF"/>
                         <constraint firstItem="RKA-Gg-Fnu" firstAttribute="leading" secondItem="jVV-SA-KvG" secondAttribute="trailing" constant="10" id="HgQ-gW-Fon"/>
