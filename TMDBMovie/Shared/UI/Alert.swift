@@ -20,4 +20,10 @@ struct Alert {
         
         return alert
     }
+    
+    func errorAlert(message mes: String) -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: mes, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
+    }
 }

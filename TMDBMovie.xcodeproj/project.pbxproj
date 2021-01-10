@@ -45,6 +45,9 @@
 		3D22BADA25AB4C2100F50622 /* YoutubeTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAD825AB4C2100F50622 /* YoutubeTrailerViewController.swift */; };
 		3D22BADB25AB4C2100F50622 /* YoutubeTrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22BAD925AB4C2100F50622 /* YoutubeTrailerViewController.xib */; };
 		3D22BADE25AB501C00F50622 /* YoutubeTrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BADD25AB501C00F50622 /* YoutubeTrailerViewModel.swift */; };
+		3D22BAE125AB522900F50622 /* GetVideosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE025AB522900F50622 /* GetVideosResponse.swift */; };
+		3D22BAE425AB53AF00F50622 /* GetVideosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE325AB53AF00F50622 /* GetVideosManager.swift */; };
+		3D22BAE725AB544A00F50622 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE625AB544A00F50622 /* VideoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,9 @@
 		3D22BAD825AB4C2100F50622 /* YoutubeTrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTrailerViewController.swift; sourceTree = "<group>"; };
 		3D22BAD925AB4C2100F50622 /* YoutubeTrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeTrailerViewController.xib; sourceTree = "<group>"; };
 		3D22BADD25AB501C00F50622 /* YoutubeTrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTrailerViewModel.swift; sourceTree = "<group>"; };
+		3D22BAE025AB522900F50622 /* GetVideosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosResponse.swift; sourceTree = "<group>"; };
+		3D22BAE325AB53AF00F50622 /* GetVideosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosManager.swift; sourceTree = "<group>"; };
+		3D22BAE625AB544A00F50622 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				3D22BA8D25AB341D00F50622 /* MovieDetailModel.swift */,
 				3D22BA9125AB343400F50622 /* MovieModel.swift */,
 				3D22BA9425AB345300F50622 /* MovieReviewsModel.swift */,
+				3D22BAE625AB544A00F50622 /* VideoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 				3D22BAA225AB350600F50622 /* GetMoviesResponse.swift */,
 				3D22BAA625AB351D00F50622 /* GetMovieDetailResponse.swift */,
 				3D22BAA925AB353B00F50622 /* GetMovieReviewsResponse.swift */,
+				3D22BAE025AB522900F50622 /* GetVideosResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 				3D22BAAC25AB355500F50622 /* GetMoviesManager.swift */,
 				3D22BAB025AB357600F50622 /* GetMovieDetailManager.swift */,
 				3D22BAB325AB359000F50622 /* GetMovieReviewsManager.swift */,
+				3D22BAE325AB53AF00F50622 /* GetVideosManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -325,8 +334,10 @@
 				3D22BAD525AB3A6900F50622 /* MovieDetailViewController.swift in Sources */,
 				3D22BA7E25AB337800F50622 /* DynamicLabel.swift in Sources */,
 				3D22BADE25AB501C00F50622 /* YoutubeTrailerViewModel.swift in Sources */,
+				3D22BAE125AB522900F50622 /* GetVideosResponse.swift in Sources */,
 				3D22BA8425AB33AF00F50622 /* BackBarButtonItem.swift in Sources */,
 				3D22BAD025AB395300F50622 /* MovieListViewController.swift in Sources */,
+				3D22BAE725AB544A00F50622 /* VideoModel.swift in Sources */,
 				3D22BA7325AB32F800F50622 /* FormatterExtension.swift in Sources */,
 				3D22BA5825AB2F8F00F50622 /* AppDelegate.swift in Sources */,
 				3D22BAAA25AB353B00F50622 /* GetMovieReviewsResponse.swift in Sources */,
@@ -339,6 +350,7 @@
 				3D22BABB25AB368E00F50622 /* MovieListViewModel.swift in Sources */,
 				3D22BAA725AB351D00F50622 /* GetMovieDetailResponse.swift in Sources */,
 				3D22BA7A25AB332A00F50622 /* DynamicButton.swift in Sources */,
+				3D22BAE425AB53AF00F50622 /* GetVideosManager.swift in Sources */,
 				3D22BA5A25AB2F8F00F50622 /* SceneDelegate.swift in Sources */,
 				3D22BA9A25AB348800F50622 /* MovieCategory.swift in Sources */,
 				3D22BABF25AB381600F50622 /* MovieDetailViewModel.swift in Sources */,

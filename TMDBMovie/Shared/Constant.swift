@@ -23,6 +23,7 @@ struct API {
     static let TOP_RATED = "/top_rated"
     static let NOW_PLAYING = "/now_playing"
     static let REVIEWS = "/reviews"
+    static let VIDEOS = "/videos"
     
 }
 
@@ -68,3 +69,7 @@ struct NotificationName {
     static let getMovieReviewsNotificationKey = "get_movie_reviews"
 }
 
+
+struct AlertMessage {
+    static let noYoutubeTrailer = "No Youtube Trailer"
+}

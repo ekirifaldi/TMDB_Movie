@@ -40,6 +40,7 @@ class MovieDetailViewController: UIViewController {
         if let movie = movieDetailVM.selectedMovie {
             movieDetailVM.getDetails(movieId: movie.id)
             movieDetailVM.getReviews(movieId: movie.id)
+            movieDetailVM.getMovieVideos(movieId: movie.id)
         }
         
     }

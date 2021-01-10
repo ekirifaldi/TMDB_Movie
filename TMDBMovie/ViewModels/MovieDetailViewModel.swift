@@ -15,6 +15,8 @@ class MovieDetailViewModel {
     var selectedMovie: MovieModel? = nil
     var getReviews = GetMovieReviewsManager()
     var movieReviews = [ReviewDataModel]()
+    var getVideos = GetVideosManager()
+    var youtubeKey: String? = nil
     
     func getDetails(movieId id: Int){
         if let nav = navigation {
@@ -34,11 +36,23 @@ class MovieDetailViewModel {
         self.getReviews.get(movieId: id)
     }
     
+    func getMovieVideos(movieId id: Int){
+        self.getVideos.delegate = self
+        self.getVideos.get(movieId: id)
+    }
+    
     func goToYoutubeTrailer(){
-        let youtubeTrailerVC = YoutubeTrailerViewController(nibName: NibName.youtubeTrailerViewController, bundle: nil)
-        youtubeTrailerVC.youtubeTrailerlVM.youtubeKey = "DWfPGIMDhNw"
-        self.navigation!.dismiss(animated: true, completion: nil)
-        self.navigation!.pushViewController(youtubeTrailerVC, animated: true)
+        if let safeYoutubeKey = youtubeKey {
+            let youtubeTrailerVC = YoutubeTrailerViewController(nibName: NibName.youtubeTrailerViewController, bundle: nil)
+            youtubeTrailerVC.youtubeTrailerlVM.youtubeKey = safeYoutubeKey
+            self.navigation!.dismiss(animated: true, completion: nil)
+            self.navigation!.pushViewController(youtubeTrailerVC, animated: true)
+        } else {
+            if let nav = navigation {
+                let alert = Alert().errorAlert(message: AlertMessage.noYoutubeTrailer)
+                nav.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }
 
@@ -83,6 +97,18 @@ extension MovieDetailViewModel: GetMovieReviewsManagerDelegate {
             let dataHash = ["success" : movieReviewsModel.results.count]
             NotificationCenter.default.post(name: notificationName, object: nil, userInfo: dataHash)
             
+        }
+    }
+    
+}
+
+extension MovieDetailViewModel: GetVideosManagerDelegate {
+    func didSuccessGetVideos(videosData: [VideoModel]) {
+        for video in videosData {
+            if video.site == "YouTube" {
+                youtubeKey = video.key
+                return
+            }
         }
     }
     
