@@ -12,8 +12,8 @@ class MovieListViewModel {
     var movies = [MovieModel]()
     var navigation: UINavigationController? = nil
     let movieCategories: [MovieCategory] = [.POPULAR,.TOP_RATED,.NOW_PLAYING]
-    var selectedCategory: MovieCategory = .POPULAR
-    var currentPage: Int = 1
+    var selectedCategory: MovieCategory = .TOP_RATED
+    var moviePage: Int = 1
     
     func getMovies(category: MovieCategory, page: Int){
         if let nav = navigation {
@@ -39,6 +39,9 @@ class MovieListViewModel {
 
 extension MovieListViewModel: GetMoviesManagerDelegate {
     func didSuccessGetMovies(page: Int, moviesData: [MovieModel]) {
+        moviePage += 1
+        print("DEBUG1 RESPONSE PAGE: \(page)")
+        print("DEBUG1 NEXT PAGE: \(moviePage)")
         DispatchQueue.main.async {
             if let nav = self.navigation {
                 nav.dismiss(animated: false, completion: {
@@ -56,6 +59,7 @@ extension MovieListViewModel: GetMoviesManagerDelegate {
     }
     
     func didFailWithClientError(error: Error) {
+        print("DEBUG1 didFailWithClientError: \(error.localizedDescription)")
         print(error.localizedDescription)
         DispatchQueue.main.async {
             if let nav = self.navigation {
@@ -65,6 +69,7 @@ extension MovieListViewModel: GetMoviesManagerDelegate {
     }
     
     func didFailWithServerError(response: URLResponse?) {
+        print("DEBUG1 didFailWithServerError: \(response.debugDescription)")
         print(response.debugDescription)
         DispatchQueue.main.async {
             if let nav = self.navigation {

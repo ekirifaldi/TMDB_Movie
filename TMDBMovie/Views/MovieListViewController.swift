@@ -15,7 +15,6 @@ class MovieListViewController: UIViewController {
     var picker  = UIPickerView()
     
     var movieListVM = MovieListViewModel()
-    let movieCategories = ["Popular","Top Rated","Now Playing"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,7 @@ class MovieListViewController: UIViewController {
         
         movieListVM.navigation = self.navigationController
         createObserver()
-        movieListVM.getMovies(category: .POPULAR, page: 1)
+        movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.moviePage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,9 +89,13 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.labelTitle.text = movie.title
         cell.labelDesc.text = movie.overview
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateFormat.releaseDateFormat
-        cell.labelReleaseDate.text = formatter.string(from: movie.releaseDate)
+        if let movieDate = movie.releaseDate {
+            let formatter = DateFormatter()
+            formatter.dateFormat = DateFormat.releaseDateFormat
+            cell.labelReleaseDate.text = formatter.string(from: movieDate)
+        } else {
+            cell.labelReleaseDate.text = "unknown"
+        }
         
         let imageUrlString = "\(API.IMAGE_URL)\(movie.posterPath)"
         if let url = URL(string: imageUrlString)
@@ -121,11 +124,12 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == movieListVM.movies.count {
-            movieListVM.currentPage += 1
-            movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.currentPage)
+        if indexPath.row == movieListVM.movies.count - 1{
+            movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.moviePage)
         }
     }
+    
+    
 }
 
 extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -149,8 +153,8 @@ extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         
-        movieListVM.currentPage = 1
-        movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.currentPage)
+        movieListVM.moviePage = 1
+        movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.moviePage)
     }
     
     func showPicker(){
