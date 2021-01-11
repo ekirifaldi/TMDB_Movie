@@ -16,7 +16,6 @@ class MovieListViewController: UIViewController {
     
     var movieListVM = MovieListViewModel()
     let movieCategories = ["Popular","Top Rated","Now Playing"]
-    var selectedCategory: MovieCategory = .POPULAR
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +119,13 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         let cellHeight = UIScreen.main.bounds.height * 0.2
         return cellHeight
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == movieListVM.movies.count {
+            movieListVM.currentPage += 1
+            movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.currentPage)
+        }
+    }
 }
 
 extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -143,7 +149,8 @@ extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         
-        movieListVM.getMovies(category: movieListVM.selectedCategory, page: 1)
+        movieListVM.currentPage = 1
+        movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.currentPage)
     }
     
     func showPicker(){

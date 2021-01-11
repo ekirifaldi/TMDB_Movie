@@ -13,6 +13,7 @@ class MovieListViewModel {
     var navigation: UINavigationController? = nil
     let movieCategories: [MovieCategory] = [.POPULAR,.TOP_RATED,.NOW_PLAYING]
     var selectedCategory: MovieCategory = .POPULAR
+    var currentPage: Int = 1
     
     func getMovies(category: MovieCategory, page: Int){
         if let nav = navigation {
