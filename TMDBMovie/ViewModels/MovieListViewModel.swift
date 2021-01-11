@@ -14,14 +14,14 @@ class MovieListViewModel {
     let movieCategories: [MovieCategory] = [.POPULAR,.TOP_RATED,.NOW_PLAYING]
     var selectedCategory: MovieCategory = .POPULAR
     
-    func getMovies(category: MovieCategory){
+    func getMovies(category: MovieCategory, page: Int){
         if let nav = navigation {
             
             let alert = Alert().loadingAlert()
             
             nav.present(alert, animated: true, completion: {
                 self.getMovies.delegate = self
-                self.getMovies.get(selectedCategory: category)
+                self.getMovies.get(selectedCategory: category, page: page)
             })
             
         }
@@ -37,11 +37,15 @@ class MovieListViewModel {
 }
 
 extension MovieListViewModel: GetMoviesManagerDelegate {
-    func didSuccessGetMovies(moviesData: [MovieModel]) {
+    func didSuccessGetMovies(page: Int, moviesData: [MovieModel]) {
         DispatchQueue.main.async {
             if let nav = self.navigation {
                 nav.dismiss(animated: false, completion: {
-                    self.movies = moviesData
+                    if page > 1 {
+                        self.movies.append(contentsOf: moviesData)
+                    } else {
+                        self.movies = moviesData
+                    }
                     let notificationName = Notification.Name(rawValue: NotificationName.getMoviesNotificationKey)
                     let dataHash = ["success" : moviesData.count]
                     NotificationCenter.default.post(name: notificationName, object: nil, userInfo: dataHash)

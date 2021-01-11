@@ -27,7 +27,7 @@ class MovieListViewController: UIViewController {
         
         movieListVM.navigation = self.navigationController
         createObserver()
-        movieListVM.getMovies(category: .POPULAR)
+        movieListVM.getMovies(category: .POPULAR, page: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +143,7 @@ extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
         
-        movieListVM.getMovies(category: movieListVM.selectedCategory)
+        movieListVM.getMovies(category: movieListVM.selectedCategory, page: 1)
     }
     
     func showPicker(){
