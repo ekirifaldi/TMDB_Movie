@@ -27,8 +27,6 @@ class GetMoviesManager: BaseRest {
             urlStr = "\(API.BASE_URL)\(API.NOW_PLAYING)?api_key=\(Key.THEMOVIEDB_API_KEY)&page=\(page)"
         }
         
-        print("DEBUG1 URL: \(urlStr!)")
-        
         if let safeUrlStr = urlStr, let safeUrl = URL(string: safeUrlStr) {
             
             var urlRequest = URLRequest(url: safeUrl)

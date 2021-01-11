@@ -11,10 +11,10 @@ class MovieListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var toolBar = UIToolbar()
-    var picker  = UIPickerView()
+    private var toolBar = UIToolbar()
+    private var picker  = UIPickerView()
     
-    var movieListVM = MovieListViewModel()
+    private var movieListVM = MovieListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class MovieListViewController: UIViewController {
         setNavigationBar()
     }
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.systemBlue
         nav?.tintColor = UIColor.white
@@ -47,7 +47,7 @@ class MovieListViewController: UIViewController {
         
     }
     
-    func setUpView(){
+    private func setUpView(){
         let labelTitle = UILabel()
         labelTitle.text = "TMDBMovie"
         labelTitle.font = UIFont(name: "Avenir-Heavy", size: DynamicFontSize(fontSize: 17).calculatedFontSize)!
@@ -58,12 +58,12 @@ class MovieListViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
-    func createObserver(){
+    private func createObserver(){
         let notificationName = Notification.Name(rawValue: NotificationName.getMoviesNotificationKey)
         NotificationCenter.default.addObserver(self, selector: #selector(updateMovies(_:)), name: notificationName, object: nil)
     }
     
-    @objc func updateMovies(_ notification: NSNotification) {
+    @objc private func updateMovies(_ notification: NSNotification) {
         guard let dataCount = notification.userInfo?["success"] as? Int else {
             return
         }
@@ -157,7 +157,7 @@ extension MovieListViewController: UIPickerViewDataSource, UIPickerViewDelegate 
         movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.moviePage)
     }
     
-    func showPicker(){
+    private func showPicker(){
         
         picker = UIPickerView.init()
         picker.delegate = self

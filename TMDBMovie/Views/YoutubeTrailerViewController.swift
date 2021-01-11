@@ -25,7 +25,7 @@ class YoutubeTrailerViewController: UIViewController, WKNavigationDelegate {
         showYoutubeTrailer()
     }
     
-    func showYoutubeTrailer(){
+    private func showYoutubeTrailer(){
         guard let youtubeId = youtubeTrailerlVM.youtubeKey else { return }
         let urlStr = "\(API.YOUTUBE_URL)\(youtubeId)"
         if let safeUrl = URL(string: urlStr) {

@@ -40,8 +40,6 @@ class MovieListViewModel {
 extension MovieListViewModel: GetMoviesManagerDelegate {
     func didSuccessGetMovies(page: Int, moviesData: [MovieModel]) {
         moviePage += 1
-        print("DEBUG1 RESPONSE PAGE: \(page)")
-        print("DEBUG1 NEXT PAGE: \(moviePage)")
         DispatchQueue.main.async {
             if let nav = self.navigation {
                 nav.dismiss(animated: false, completion: {
@@ -59,7 +57,6 @@ extension MovieListViewModel: GetMoviesManagerDelegate {
     }
     
     func didFailWithClientError(error: Error) {
-        print("DEBUG1 didFailWithClientError: \(error.localizedDescription)")
         print(error.localizedDescription)
         DispatchQueue.main.async {
             if let nav = self.navigation {
@@ -69,7 +66,6 @@ extension MovieListViewModel: GetMoviesManagerDelegate {
     }
     
     func didFailWithServerError(response: URLResponse?) {
-        print("DEBUG1 didFailWithServerError: \(response.debugDescription)")
         print(response.debugDescription)
         DispatchQueue.main.async {
             if let nav = self.navigation {

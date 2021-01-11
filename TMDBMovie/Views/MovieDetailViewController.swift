@@ -53,9 +53,7 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    
-    
-    func createObserver(){
+    private func createObserver(){
         let notificationName = Notification.Name(rawValue: NotificationName.getDetailMoviesNotificationKey)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDetailMovie(_:)), name: notificationName, object: nil)
         
@@ -63,7 +61,7 @@ class MovieDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateMovieReviews(_:)), name: notificationReviewName, object: nil)
     }
     
-    @objc func updateMovieReviews(_ notification: NSNotification) {
+    @objc private func updateMovieReviews(_ notification: NSNotification) {
         guard let dataCount = notification.userInfo?["success"] as? Int else {
             return
         }
@@ -73,7 +71,7 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    @objc func updateDetailMovie(_ notification: NSNotification) {
+    @objc private func updateDetailMovie(_ notification: NSNotification) {
         guard let isDataReady = notification.userInfo?["success"] as? Bool else {
             return
         }
@@ -108,7 +106,7 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func btnWatchTrailerPressed(_ sender: UIButton) {
+    @IBAction private func btnWatchTrailerPressed(_ sender: UIButton) {
         movieDetailVM.goToYoutubeTrailer()
     }
 }
