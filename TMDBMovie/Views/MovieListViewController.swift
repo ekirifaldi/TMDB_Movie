@@ -26,6 +26,11 @@ class MovieListViewController: UIViewController {
         movieListVM.navigation = self.navigationController
         createObserver()
         movieListVM.getMovies(category: movieListVM.selectedCategory, page: movieListVM.moviePage)
+        
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        print("HEIGHT: \(height)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
