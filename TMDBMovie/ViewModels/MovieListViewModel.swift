@@ -9,6 +9,8 @@ import UIKit
 
 class MovieListViewModel {
     var getMovies = GetMoviesManager()
+    var alaGetMovies = AlaGetMoviesManager()
+    
     var movies = [MovieModel]()
     var navigation: UINavigationController? = nil
     let movieCategories: [MovieCategory] = [.POPULAR,.TOP_RATED,.NOW_PLAYING]
@@ -21,8 +23,9 @@ class MovieListViewModel {
             let alert = Alert().loadingAlert()
             
             nav.present(alert, animated: true, completion: {
-                self.getMovies.delegate = self
-                self.getMovies.get(selectedCategory: category, page: page)
+//                self.getMovies.delegate = self
+                //                self.getMovies.get(selectedCategory: category, page: page)
+                self.alaGetMovies.get(selectedCategory: category, page: page)
             })
             
         }
