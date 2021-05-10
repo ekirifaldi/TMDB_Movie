@@ -8,8 +8,9 @@
 import Foundation
 import Alamofire
 
+//https://www.raywenderlich.com/6587213-alamofire-5-tutorial-for-ios-getting-started#toc-anchor-007
 class AlaGetMoviesManager {
-    func get(selectedCategory category: MovieCategory, page: Int){
+    func get(selectedCategory category: MovieCategory, page: Int, completionHandler: @escaping ([MovieModel]?) -> Void){
         var urlStr: String?
         switch category {
         case .POPULAR:
@@ -19,13 +20,13 @@ class AlaGetMoviesManager {
         case .NOW_PLAYING:
             urlStr = "\(API.BASE_URL)\(API.NOW_PLAYING)?api_key=\(Key.THEMOVIEDB_API_KEY)&page=\(page)"
         }
-    
         
-        let request = AF.request(urlStr!)
-    
-        request.responseJSON { (data) in
-            print("REQUEST ALA: \(data)")
-        }
+        AF.request(urlStr!)
+            .validate()
+            .responseDecodable(of: GetMoviesResponse.self, decoder: CustomDecoder()) { (response) in
+                guard let movies = response.value else { return }
+                completionHandler(movies.results)
+            }
     }
 }
 

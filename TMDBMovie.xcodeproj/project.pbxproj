@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,6 +50,7 @@
 		3D22BAE125AB522900F50622 /* GetVideosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE025AB522900F50622 /* GetVideosResponse.swift */; };
 		3D22BAE425AB53AF00F50622 /* GetVideosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE325AB53AF00F50622 /* GetVideosManager.swift */; };
 		3D22BAE725AB544A00F50622 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22BAE625AB544A00F50622 /* VideoModel.swift */; };
+		3DCCEFC426497EEC00E0BF6B /* CustomDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCCEFC326497EEC00E0BF6B /* CustomDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		3D22BAE025AB522900F50622 /* GetVideosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosResponse.swift; sourceTree = "<group>"; };
 		3D22BAE325AB53AF00F50622 /* GetVideosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVideosManager.swift; sourceTree = "<group>"; };
 		3D22BAE625AB544A00F50622 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		3DCCEFC326497EEC00E0BF6B /* CustomDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDecoder.swift; sourceTree = "<group>"; };
 		49637C3A3BC2C88E78859CED /* Pods_TMDBMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FBB9E0E2466A205287121F /* Pods-TMDBMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBMovie.release.xcconfig"; path = "Target Support Files/Pods-TMDBMovie/Pods-TMDBMovie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				3D02D3FB264125FA00D63022 /* AlaGetMoviesManager.swift */,
+				3DCCEFC326497EEC00E0BF6B /* CustomDecoder.swift */,
 			);
 			path = ManagerAlamofire;
 			sourceTree = "<group>";
@@ -284,7 +287,6 @@
 				217F0D83E478AA671564A7E7 /* Pods-TMDBMovie.debug.xcconfig */,
 				74FBB9E0E2466A205287121F /* Pods-TMDBMovie.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -431,6 +433,7 @@
 				3D22BABB25AB368E00F50622 /* MovieListViewModel.swift in Sources */,
 				3D22BAA725AB351D00F50622 /* GetMovieDetailResponse.swift in Sources */,
 				3D22BA7A25AB332A00F50622 /* DynamicButton.swift in Sources */,
+				3DCCEFC426497EEC00E0BF6B /* CustomDecoder.swift in Sources */,
 				3D22BAE425AB53AF00F50622 /* GetVideosManager.swift in Sources */,
 				3D22BA5A25AB2F8F00F50622 /* SceneDelegate.swift in Sources */,
 				3D22BA9A25AB348800F50622 /* MovieCategory.swift in Sources */,

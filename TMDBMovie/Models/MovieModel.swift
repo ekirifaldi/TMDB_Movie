@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieModel {
+struct MovieModelxx {
     let id: Int
     let overview: String
     let posterPath: String

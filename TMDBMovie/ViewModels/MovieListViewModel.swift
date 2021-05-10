@@ -24,8 +24,22 @@ class MovieListViewModel {
             
             nav.present(alert, animated: true, completion: {
 //                self.getMovies.delegate = self
-                //                self.getMovies.get(selectedCategory: category, page: page)
-                self.alaGetMovies.get(selectedCategory: category, page: page)
+//                self.getMovies.get(selectedCategory: category, page: page)
+                self.alaGetMovies.get(selectedCategory: category, page: page, completionHandler: { [self] (response) in
+                    if let moviesData = response {
+                        moviePage += 1
+                        nav.dismiss(animated: false, completion: {
+                            if page > 1 {
+                                self.movies.append(contentsOf: moviesData)
+                            } else {
+                                self.movies = moviesData
+                            }
+                            let notificationName = Notification.Name(rawValue: NotificationName.getMoviesNotificationKey)
+                            let dataHash = ["success" : moviesData.count]
+                            NotificationCenter.default.post(name: notificationName, object: nil, userInfo: dataHash)
+                        })
+                    }
+                })
             })
             
         }

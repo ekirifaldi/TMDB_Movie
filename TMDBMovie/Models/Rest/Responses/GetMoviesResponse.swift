@@ -9,22 +9,42 @@ import Foundation
 
 struct GetMoviesResponse: Codable {
     let page: Int
-    let results: [MovieData]
+    let results: [MovieModel]
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case results
+    }
 }
 
-struct MovieData: Codable {
+struct MovieModel: Codable {
     let adult: Bool
-    let backdrop_path: String?
-    let genre_ids: [Int]
+    let backdropPath: String?
+    let genreIds: [Int]
     let id: Int
-    let original_language: String
-//    let original_title: String
+    let originalLanguage: String
     let overview: String
     let popularity: Double
-    let poster_path: String
-    let release_date: Date?
+    let posterPath: String
+    let releaseDate: Date?
     let title: String
     let video: Bool
-    let vote_average: Double
-    let vote_count: Int
+    let voteAverage: Double
+    let voteCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIds = "genre_ids"
+        case id
+        case originalLanguage = "original_language"
+        case overview
+        case popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title
+        case video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
 }

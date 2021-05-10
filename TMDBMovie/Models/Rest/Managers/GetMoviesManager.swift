@@ -50,9 +50,9 @@ class GetMoviesManager: BaseRest {
 //                    let outputStr  = String(data: safeData, encoding: String.Encoding.utf8)! as String
 //                    print("response: \(outputStr)")
                     
-                    if let parsedData = self.parseJSON(safeData) {
-                        self.delegate?.didSuccessGetMovies(page: parsedData.0, moviesData: parsedData.1)
-                    }
+//                    if let parsedData = self.parseJSON(safeData) {
+//                        self.delegate?.didSuccessGetMovies(page: parsedData.0, moviesData: parsedData.1)
+//                    }
                 }
             }
             
@@ -60,24 +60,24 @@ class GetMoviesManager: BaseRest {
         }
     }
     
-    func parseJSON(_ data: Data) -> (Int, [MovieModel])? {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601standard)
-        do {
-            let decodedResponse = try decoder.decode(GetMoviesResponse.self, from: data)
-            let decodedDatas = decodedResponse.results
-
-            var models = [MovieModel]()
-            for decodedData in decodedDatas {
-                let model = MovieModel(id: decodedData.id, overview: decodedData.overview, posterPath: decodedData.poster_path, releaseDate: decodedData.release_date, title: decodedData.title)
-                
-                models.append(model)
-            }
-            
-            return (decodedResponse.page, models)
-        } catch {
-            delegate?.didFailWithClientError(error: error)
-            return nil
-        }
-    }
+//    func parseJSON(_ data: Data) -> (Int, [MovieModel])? {
+//        let decoder = JSONDecoder()
+//        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601standard)
+//        do {
+//            let decodedResponse = try decoder.decode(GetMoviesResponse.self, from: data)
+//            let decodedDatas = decodedResponse.results
+//
+//            var models = [MovieModel]()
+//            for decodedData in decodedDatas {
+//                let model = MovieModel(id: decodedData.id, overview: decodedData.overview, posterPath: decodedData.posterPath, releaseDate: decodedData.releaseDate, title: decodedData.title)
+//
+//                models.append(model)
+//            }
+//
+//            return (decodedResponse.page, models)
+//        } catch {
+//            delegate?.didFailWithClientError(error: error)
+//            return nil
+//        }
+//    }
 }
