@@ -9,5 +9,6 @@ target 'TMDBMovie' do
   pod 'RxSwift', '6.0.0-rc.1'
   pod 'RxCocoa', '6.0.0-rc.1'
   pod 'Alamofire', '~> 5.2'
+  pod 'Kingfisher', '~> 6.0'
 
 end
