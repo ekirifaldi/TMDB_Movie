@@ -8,7 +8,6 @@
 import UIKit
 
 class MovieListViewModel {
-    var getMovies = GetMoviesManager()
     var alaGetMovies = AlaGetMoviesManager()
     
     var movies = [MovieModel]()
@@ -23,8 +22,6 @@ class MovieListViewModel {
             let alert = Alert().loadingAlert()
             
             nav.present(alert, animated: true, completion: {
-//                self.getMovies.delegate = self
-//                self.getMovies.get(selectedCategory: category, page: page)
                 self.alaGetMovies.get(selectedCategory: category, page: page, completionHandler: { [self] (response) in
                     if let moviesData = response {
                         moviePage += 1
@@ -45,51 +42,9 @@ class MovieListViewModel {
         }
     }
     
-    func goToDetailMovie(movie: MovieModel){
-        let movieDetailVC = MovieDetailViewController(nibName: NibName.movieDetailViewController, bundle: nil)
-        movieDetailVC.movieDetailVM.selectedMovie = movie
-        self.navigation!.dismiss(animated: true, completion: nil)
-        self.navigation!.pushViewController(movieDetailVC, animated: true)
+    func goToDetailMovie(index: Int){
+//        let movieDetailVC = MovieDetailViewController(nibName: NibName.movieDetailViewController, bundle: nil)
+//        self.navigation!.pushViewController(movieDetailVC, animated: true)
     }
-    
-}
-
-extension MovieListViewModel: GetMoviesManagerDelegate {
-    func didSuccessGetMovies(page: Int, moviesData: [MovieModel]) {
-        moviePage += 1
-        DispatchQueue.main.async {
-            if let nav = self.navigation {
-                nav.dismiss(animated: false, completion: {
-                    if page > 1 {
-                        self.movies.append(contentsOf: moviesData)
-                    } else {
-                        self.movies = moviesData
-                    }
-                    let notificationName = Notification.Name(rawValue: NotificationName.getMoviesNotificationKey)
-                    let dataHash = ["success" : moviesData.count]
-                    NotificationCenter.default.post(name: notificationName, object: nil, userInfo: dataHash)
-                })
-            }
-        }
-    }
-    
-    func didFailWithClientError(error: Error) {
-        print(error.localizedDescription)
-        DispatchQueue.main.async {
-            if let nav = self.navigation {
-                nav.dismiss(animated: false, completion: nil)
-            }
-        }
-    }
-    
-    func didFailWithServerError(response: URLResponse?) {
-        print(response.debugDescription)
-        DispatchQueue.main.async {
-            if let nav = self.navigation {
-                nav.dismiss(animated: false, completion: nil)
-            }
-        }
-    }
-    
     
 }

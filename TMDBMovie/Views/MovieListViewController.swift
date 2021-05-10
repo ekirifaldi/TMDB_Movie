@@ -119,8 +119,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = movieListVM.movies[indexPath.row]
-        movieListVM.goToDetailMovie(movie: data)
+        movieListVM.goToDetailMovie(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
