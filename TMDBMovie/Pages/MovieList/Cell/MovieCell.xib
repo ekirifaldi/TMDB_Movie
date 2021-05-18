@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -61,7 +60,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Pure White"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gmn-2f-O6u" secondAttribute="bottom" id="07S-o8-f8n"/>
                             <constraint firstAttribute="trailing" secondItem="Kyf-yn-eJ0" secondAttribute="trailing" constant="10" id="Ha5-VY-nQI"/>
@@ -101,10 +100,10 @@
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <namedColor name="Charcole Black">
-            <color red="0.042412420715948529" green="0.0" blue="0.033763013563861716" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.041999999433755875" green="0.0" blue="0.034000001847743988" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Pure White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

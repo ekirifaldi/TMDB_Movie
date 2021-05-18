@@ -15,13 +15,14 @@ class MovieListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
+        setUpView()
+        inisiateView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar()
-        setUpView()
-        inisiateView()
+        fetchMovies()
     }
     
     private func setNavigationBar() {
@@ -52,6 +53,10 @@ class MovieListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: NibName.movieCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.movieReusableCell)
         movieListVM.navigation = self.navigationController
+    }
+    
+    func fetchMovies(){
+        
         movieListVM.getMovies(completionHandler: { [self] (dataCount) in
             if dataCount > 0 {
                 tableView.reloadData()
@@ -68,7 +73,9 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieReusableCell, for: indexPath) as! MovieCell
+        
         let movie = movieListVM.movies[indexPath.row]
+        
         cell.labelTitle.text = movie.title
         cell.labelDesc.text = movie.overview
         

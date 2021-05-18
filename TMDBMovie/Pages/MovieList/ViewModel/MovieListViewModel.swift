@@ -12,6 +12,8 @@ class MovieListViewModel: BaseViewModel {
     
     var movies = [MovieModel]()
     
+    
+    
     func getMovies(completionHandler: @escaping (Int) -> Void){
         if let nav = navigation {
             
@@ -32,9 +34,11 @@ class MovieListViewModel: BaseViewModel {
     }
     
     func goToDetailMovie(index: Int){
-        let movieDetailVC = MovieDetailViewController(nibName: NibName.movieDetailViewController, bundle: nil)
-        movieDetailVC.movieDetailVM.movieName = movies[index].title
-        self.navigation!.pushViewController(movieDetailVC, animated: true)
+        if let nav = navigation {
+            let movieDetailVC = MovieDetailViewController(nibName: NibName.movieDetailViewController, bundle: nil)
+            movieDetailVC.movieDetailVM.movieName = movies[index].title
+            nav.pushViewController(movieDetailVC, animated: true)
+        }
     }
     
 }
