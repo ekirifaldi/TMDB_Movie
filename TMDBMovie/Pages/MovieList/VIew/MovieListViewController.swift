@@ -57,9 +57,9 @@ class MovieListViewController: UIViewController {
     
     func fetchMovies(){
         
-        movieListVM.getMovies(completionHandler: { [self] (dataCount) in
+        movieListVM.getMovies(completionHandler: { [weak self] dataCount in
             if dataCount > 0 {
-                tableView.reloadData()
+                self?.tableView.reloadData()
             }
         })
     }
