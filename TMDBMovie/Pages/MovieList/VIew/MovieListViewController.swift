@@ -48,14 +48,14 @@ class MovieListViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
-    func inisiateView(){
+    private func inisiateView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: NibName.movieCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.movieReusableCell)
         movieListVM.navigation = self.navigationController
     }
     
-    func fetchMovies(){
+    private func fetchMovies(){
         
         movieListVM.getMovies(completionHandler: { [weak self] dataCount in
             if dataCount > 0 {
