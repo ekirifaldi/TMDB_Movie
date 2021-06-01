@@ -20,10 +20,10 @@ class MovieListViewModel: BaseViewModel {
             let alert = Alert().loadingAlert()
             
             nav.present(alert, animated: true, completion: {
-                self.getMovies.get(completionHandler: { [self] (response) in
+                self.getMovies.get(completionHandler: { [weak self] (response) in
                     if let moviesData = response {
                         nav.dismiss(animated: false, completion: {
-                            self.movies.append(contentsOf: moviesData)
+                            self?.movies.append(contentsOf: moviesData)
                             completionHandler(moviesData.count)
                         })
                     }
