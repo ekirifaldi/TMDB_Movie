@@ -6,9 +6,9 @@ target 'TMDBMovie' do
   use_frameworks!
 
   # Pods for TMDBMovie
-  pod 'RxSwift', '6.0.0-rc.1'
-  pod 'RxCocoa', '6.0.0-rc.1'
+  pod 'R.swift', '6.0.0'
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher', '~> 6.0'
+  pod 'SnapKit', '~> 4.2.0'
 
 end
