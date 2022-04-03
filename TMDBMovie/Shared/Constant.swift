@@ -38,11 +38,12 @@ struct DateFormat {
 }
 
 struct NibName {
+    //VC
     static let movieListViewController = "MovieListViewController"
     static let movieDetailViewController = "MovieDetailViewController"
-    static let youtubeTrailerViewController = "YoutubeTrailerViewController"
+    
+    //CELL
     static let movieCell = "MovieCell"
-    static let reviewCell = "ReviewCell"
 }
 
 
@@ -59,14 +60,12 @@ struct AssetImages {
 }
 
 struct AssetColors {
-//    static let navigationBarColor = "NavigationBarColor"
+    static let charcoleBlack = "Charcole Black"
+    static let pureWhite = "Pure White"
 }
 
-
-struct NotificationName {
-    static let getMoviesNotificationKey = "get_movies"
-    static let getDetailMoviesNotificationKey = "get_detail_movie"
-    static let getMovieReviewsNotificationKey = "get_movie_reviews"
+struct FontName {
+    static let avenirHeavy = "Avenir-Heavy"
 }
 
 
